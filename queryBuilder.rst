@@ -78,6 +78,7 @@ getParams()
 Pobiera parametry do zbindowania
 
 .. code-block:: php
+
  $where = array(new WhereChunk('active > ?', array('1'))));
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareWhere($where);
