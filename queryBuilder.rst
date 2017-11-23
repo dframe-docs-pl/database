@@ -9,7 +9,9 @@ Skomplikowane zapytania czasami wiążą się z budowaniem wielu takich samych z
 prepareQuery()
 ^^^^^^^^^^^^^^
 Podstawowa metoda do budowania zapytań
+
 .. code-block:: php
+
  $query = $db->prepareQuery('SELECT * FROM users');
 
 prepareWhere()
@@ -18,6 +20,7 @@ Metoda służąca do filtrowania zapytań
 
 
 .. code-block:: php
+
  $where = array(new WhereChunk('user_id = ?', array('1'))));
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareWhere($where);
@@ -28,6 +31,7 @@ prepareOrder()
 Metoda służąca do sortowania
 
 .. code-block:: php
+
  $where = array(new WhereChunk('active > ?', array('1'))));
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareWhere($where);
@@ -46,6 +50,7 @@ prepareLimit()
 Wygodna metoda do limitowania danych przydatka w użyciu paginatora
 
 .. code-block:: php
+
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareLimit('10', '30');
 
@@ -54,6 +59,7 @@ prepareParms()
 Binduje parametr do zapytania.
 
 .. code-block:: php
+
  $query = $db->prepareQuery('SELECT * FROM users WHERE id = ?');
  $query->prepareParms(array('1'));
 
@@ -62,6 +68,7 @@ getQuery()
 Buduje zapytanie mysql
 
 .. code-block:: php
+
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareOrder('username', 'ASC');
  $prepareQuery = $query->getQuery();
