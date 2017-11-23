@@ -12,23 +12,33 @@ pdoQuery()
 Podstawowa metoda do wykonywania większości zapytań
 
 .. code-block:: php
+
  $result = $db->pdoQuery('SELECT * FROM users WHERE id = ?', array('1'))->result();
 
 Notka: Warto zaznaczyć ze na końcu jest metoda result() zwraca ona pierwszy wiersz tablicy, w celu użyskania wszystich wierszy zamiast result() powinno się zastosować results()
+
 .. code-block:: php
+
  $results = $db->pdoQuery('SELECT * FROM users')->results();
 
 select()
 ^^^^^^^^
 
 Metoda służąca tylko do pobierania
+
 .. code-block:: php
+
  $select = $pdo->select('users')->results();
+ 
 Można na niej wykonywać prostsze zapytania z określanymi danymi i filtrami
+
 .. code-block:: php
+
  // Pobiera wszystkie wiersze
  $select = $pdo->select('users', '*')->results();
+ 
 .. code-block:: php
+
  // Pobiera wiersze z podanych kolumn
  $select = $pdo->select('users', array('user_id', 'user_name'))->results(); 
 
@@ -36,7 +46,9 @@ insert()
 ^^^^^^^^
 
 Metoda służąca tylko do dodawania danych do bazy
+
 .. code-block:: php
+
  $dataArray = array('user_name' => 'Jack');
  $insert = $db->insert('users', $dataArray)->getLastInsertId();
 
@@ -44,7 +56,9 @@ InsertBatch()
 ^^^^^^^^^^^^^
 
 Działająca na podobnej zasadzie jak insert() lecz daje nam możliwość dodanie hurtem
+
 .. code-block:: php
+
  $dataArray[] = array('user_name' => 'Eli');
  $dataArray[] = array('user_name' => 'Jack');
  $dataArray[] = array('user_name' => 'Mati');
@@ -54,7 +68,9 @@ update()
 ^^^^^^^^
 
 Najwygdniejsza metoda w całym wraperze do aktualizowania danych
+
 .. code-block:: php
+
  $dataArray = array('user_name'=>'Monana', 'user_age'=> '35');
  $where = array('id' => 23);
  $update = $db->update('user', $dataArray, $aWhere)->affectedRows();
@@ -63,7 +79,9 @@ delete()
 ^^^^^^^^
 
 delete służy do kasowania prostych danych.
+
 .. code-block:: php
+
  $aWhere = array('age' => 35);
  $delete = $db->delete('test', $aWhere)->affectedRows();
 W przypadku kasowania bardziej skomplikowanego związanymi z większe/mniejsze/podobne używamy **pdoQuery** z zaleceniem użycia już **whereChunkString**
@@ -74,27 +92,34 @@ truncate()
 Czyści tablicę
 
 .. code-block:: php
+
  $truncate = $db->truncate('users');
 
 drop()
 ^^^^^^
 
 Usuwa tablicę
+
 .. code-block:: php
+
  $drop = $db->drop('users');
 
 describe()
 ^^^^^^^^^^
 
 Pokazuje liste kolumn w bazie oraz ich typy
+
 .. code-block:: php
+
  $describe = $db->describe('users');
 
 count()
 ^^^^^^^
 
 Liczenie liczby wierszy w mniej skomplikowanych zapytaniach
+
 .. code-block:: php
+
  $count = $db->count('employees');
  $bindWhere = array('user_name' = 'Jack');
  $count = $db->count('users', $bindWhere);
@@ -103,15 +128,19 @@ showQuery()
 ^^^^^^^^^^^
 
 showQuery jest bardzo przydatną metodą przy dużych zapytaniach dzięki niej zamiast parametru result()/results() wstawiamy showQuery() dzięki czemu wyświetla nam zapytanie z podstawionymi zmiennymi
+
 .. code-block:: php
+
  results = $db->pdoQuery('SELECT * FROM users')->showQuery();
- cho $results;
+ echo $results;
 
 getLastInsertId()
 ^^^^^^^^^^^^^^^^^
 
 Zwraca ostatnio wstawiony id wiersza
+
 .. code-block:: php
+
  $getLastInsertId = $db->insert('users', $dataArray)->getLastInsertId();
  echo $getLastInsertId;
 
@@ -124,7 +153,9 @@ results()
 ^^^^^^^^^
 
 Zwraca dane w domyślnym formacje **array** dostępne jeszcze **xml/json**
+
 .. code-block:: php
+
  $data = $db->results();
  $data = $db->results('xml');
  $data = $db->results('json');
@@ -133,7 +164,9 @@ result()
 ^^^^^^^^
 
 Działa na tej samej zasadzie do results i jak juz było wspomnanie zwraca nam tylko pierszy wiersz
+
 .. code-block:: php
+
  $data = $db->result();
  $data = $db->result('xml');
  $data = $db->result('json');
@@ -142,37 +175,46 @@ affectedRows()
 ^^^^^^^^^^^^^^
 
 Zwraca nam liczbę zmodyfikowanych wierszy
+
 .. code-block:: php
+
  $data = $db->affectedRows();
 
 start()
 ^^^^^^^
 
 Rozpoczęcie transakcji mysql
+
 .. code-block:: php
+
  $data = $db->start();
 
 end()
 ^^^^^
 
 Zakoczenie transackji mysql
+
 .. code-block:: php
+
  $data = $db->end();
 
 back()
 ^^^^^^
 
 Cofnięcie zmian jeśli w trakcie start/end wyskoczył jakiś bład
+
 .. code-block:: php
+
  $data = $db->back();
 
 setErrorLog()
 ^^^^^^^^^^^^^
 
 Domyślnie ustawiany przy konfiguracji na false włacza/wyłacza debugowanie
-.. code-block:: php
- $db->setErrorLog(true);     // true/false
 
+.. code-block:: php
+
+ $db->setErrorLog(true);     // true/false
 
 
 
