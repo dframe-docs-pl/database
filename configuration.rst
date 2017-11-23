@@ -1,6 +1,7 @@
 Dane dla dfrme powinny znajdować się w pliku app/boostrap.php. Zawiera on biblioteki i zmienne przekazywane do całej aplikacji poprzez zmienną $this->baseClass. W pliku web/config.php podaje się wartości CONST
 
 .. code-block:: php
+
  use Dframe\Database\Database;
  
  try {
