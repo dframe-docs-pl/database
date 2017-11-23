@@ -2,7 +2,9 @@ WhereChunk
 ^^^^^^^^^^
 
 Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tworzymy zapytanie do bazy dorzucamy różne ograniczenia WHERE za pomocą chunków możemy prościej i mniejszą ilością kodu dodawać bądź usuwać parametry doklejane do WHERE
+
 .. code-block:: php
+
  namespace Controller;
  use Dframe\Config;
  use Dframe\Database\WhereChunk;
@@ -25,6 +27,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
      }
 
 .. code-block:: php
+
  namespace Model;
  
  class UserModel extends \Model\Model
@@ -46,5 +49,7 @@ WhereStringChunk
 ^^^^^^^^^^^^^^^^
 
 Ciekawszą i częściej w praktyce wykorzystywaną klasą jest WhereStringChunk daje ona nam dużo większne możliwości niż zwykłe WhereChunk
+
 .. code-block:: php
+
  $where[] = new \Dframe\Database\WhereStringChunk('col_id > ?', array('1'));
