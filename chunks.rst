@@ -9,6 +9,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
  use Dframe\Config;
  use Dframe\Database\WhereChunk;
  use Dframe\Database\WhereStringChunk;
+ use Dframe\Router\Response;
  
  class UserController extends \Controller\Controller
  {
@@ -23,7 +24,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
              $where[] = new WhereChunk('`users`.`username`', '%'.$_POST['search']['username'].'%', 'LIKE');
       
          $users = $userModel->getUsers($where, $order[0], $order[1], $_POST['resourceId']);
-         exit($view->renderJSON(array('users' => $users)));
+         return Response::renderJSON(array('users' => $users), 200);
      }
 
 .. code-block:: php
