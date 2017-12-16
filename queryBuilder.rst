@@ -88,9 +88,6 @@ Pobiera parametry do zbindowania
  $prepareQuery = $query->getQuery();
  $bindQuery = $query->getParams();
 
-
-
-
 .. |table| advTable:: width="100%"
  :tr_1:
  :th_1.1: Wywołanie
