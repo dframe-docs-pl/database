@@ -24,7 +24,8 @@ Metoda służąca do filtrowania zapytań
  $where = array(new WhereChunk('user_id = ?', array('1'))));
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareWhere($where);
- Można na niej wykonywać prostsze zapytania z określanymi danymi i filtrami
+ 
+Można na niej wykonywać prostsze zapytania z określanymi danymi i filtrami
 
 prepareOrder()
 ^^^^^^^^^^^^^^
