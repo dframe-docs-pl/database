@@ -31,9 +31,9 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
                      $where[] = new WhereChunk('`users`.`username`', '%'.$_POST['search']['username'].'%', 'LIKE');
                  }
       
-                  $users = $userModel->getUsers($where, $order[0], $order[1]);
-                  return Response::renderJSON(array('users' => $users), 200);
-                  break;
+                 $users = $userModel->getUsers($where, $order[0], $order[1]);
+                 return Response::renderJSON(array('users' => $users), 200);
+                 break;
          }
          
          
