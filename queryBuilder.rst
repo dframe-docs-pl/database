@@ -6,7 +6,7 @@ Skomplikowane zapytania czasami wiążą się z budowaniem wielu takich samych z
 
 |table|
 
-prepareQuery()
+prepareQuery($sql, $parms = array())
 ^^^^^^^^^^^^^^
 Podstawowa metoda do budowania zapytań
 
@@ -14,7 +14,7 @@ Podstawowa metoda do budowania zapytań
 
  $query = $db->prepareQuery('SELECT * FROM users');
 
-prepareWhere()
+prepareWhere($parms = array())
 ^^^^^^^^^^^^^^
 Metoda służąca do filtrowania zapytań
 
@@ -27,7 +27,7 @@ Metoda służąca do filtrowania zapytań
  
 Można na niej wykonywać prostsze zapytania z określanymi danymi i filtrami
 
-prepareOrder()
+prepareOrder($orderBy, $sort)
 ^^^^^^^^^^^^^^
 Metoda służąca do sortowania
 
@@ -38,15 +38,16 @@ Metoda służąca do sortowania
  $query->prepareWhere($where);
  $query->prepareOrder('username', 'ASC');
 
-prepareGroupBy()
+prepareGroupBy($groupBy)
 ^^^^^^^^^^^^^^^^
 Grupuje zapytanie
 
 .. code-block:: php
+
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareGroupBy('firstname');
 
-prepareLimit()
+prepareLimit($limit, $offset)
 ^^^^^^^^^^^^^^
 Wygodna metoda do limitowania danych przydatka w użyciu paginatora
 
@@ -55,7 +56,7 @@ Wygodna metoda do limitowania danych przydatka w użyciu paginatora
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareLimit('10', '30');
 
-prepareParms()
+prepareParms($parms = array())
 ^^^^^^^^^^^^^^
 Binduje parametr do zapytania.
 
