@@ -41,7 +41,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
              ->headers(array('Allow' => 'GET, POST'))
              ->status(403);
      }
-
+     
 .. code-block:: php
 
  namespace Model;
