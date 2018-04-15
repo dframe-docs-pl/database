@@ -14,7 +14,8 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
  class UserController extends \Controller\Controller
  {
  
-     public function index() {
+     public function index() 
+     {
          $userModel = $this->loadModel('User');
          $view = $this->loadView('Index');
          
@@ -27,7 +28,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
                  $order = array('user.id', 'ASC');
                  $where = array();
                  
-                 if(isset($_GET['search']['username'])){
+                 if (isset($_GET['search']['username'])) {
                      $where[] = new WhereChunk('`users`.`username`', '%'.$_POST['search']['username'].'%', 'LIKE');
                  }
       
@@ -48,7 +49,8 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
  
  class UserModel extends \Model\Model
  {
-     public function resources($whereObject, $order = 'user.id', $sort = 'DESC'){
+     public function resources($whereObject, $order = 'user.id', $sort = 'DESC') 
+     {
  
          $query = $this->baseClass->db->prepareQuery('SELECT * FROM user');        
          $query->prepareWhere($whereObject);
