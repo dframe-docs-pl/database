@@ -18,10 +18,10 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
      {
          $userModel = $this->loadModel('User');
          $view = $this->loadView('Index');
-         $view->render('user/index);
+         return $view->render('user/index');
      }
      
-     public function list()
+     public function list() 
      {
          switch ($_SERVER['REQUEST_METHOD']) {
              case 'POST':
