@@ -13,7 +13,7 @@ Podstawowa metoda do wykonywania większości zapytań
 
 .. code-block:: php
 
- $result = $db->pdoQuery('SELECT * FROM users WHERE id = ?', array('1'))->result();
+ $result = $db->pdoQuery('SELECT * FROM users WHERE user_id = ?', array('1'))->result();
 
 Notka: Warto zaznaczyć ze na końcu jest metoda result() zwraca ona pierwszy wiersz tablicy, w celu użyskania wszystich wierszy zamiast result() powinno się zastosować results()
 
@@ -71,7 +71,7 @@ Najwygdniejsza metoda w całym wraperze do aktualizowania danych
 
 .. code-block:: php
 
- $dataArray = array('user_name'=>'Monana', 'user_age'=> '35');
+ $dataArray = array('user_name' => 'Monana', 'user_age'=> '35');
  $where = array('id' => 23);
  $update = $db->update('user', $dataArray, $aWhere)->affectedRows();
 
