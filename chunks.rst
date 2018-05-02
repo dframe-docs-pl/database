@@ -6,6 +6,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
 .. code-block:: php
 
  namespace Controller;
+ 
  use Dframe\Config;
  use Dframe\Database\WhereChunk;
  use Dframe\Database\WhereStringChunk;
@@ -16,12 +17,12 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
  
      public function index() 
      {
-         $userModel = $this->loadModel('User');
+         $userModel = $this->loadModel('Users');
          $view = $this->loadView('Index');
-         return $view->render('user/index');
+         return $view->render('users/index');
      }
      
-     public function list() 
+     public function lists() 
      {
          switch ($_SERVER['REQUEST_METHOD']) {
              case 'POST':
@@ -29,7 +30,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
                  break;
                  
              case 'GET':
-                 $order = array('user.id', 'ASC');
+                 $order = array('users.user_id', 'ASC');
                  $where = array();
                  
                  if (isset($_GET['search']['username'])) {
@@ -55,7 +56,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
      public function resources($whereObject, $order = 'user.id', $sort = 'DESC') 
      {
  
-         $query = $this->baseClass->db->prepareQuery('SELECT * FROM user');        
+         $query = $this->baseClass->db->prepareQuery('SELECT * FROM users');        
          $query->prepareWhere($whereObject);
          $query->prepareOrder($order, $sort);
  
