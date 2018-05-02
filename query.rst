@@ -121,7 +121,7 @@ Liczenie liczby wierszy w mniej skomplikowanych zapytaniach
 .. code-block:: php
 
  $count = $db->count('employees');
- $bindWhere = array('user_name' = 'Jack');
+ $bindWhere = array('user_name' => 'Jack');
  $count = $db->count('users', $bindWhere);
 
 showQuery()
