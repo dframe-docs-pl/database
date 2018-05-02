@@ -73,7 +73,7 @@ Najwygdniejsza metoda w całym wraperze do aktualizowania danych
 
  $dataArray = array('user_name' => 'Monana', 'user_age'=> '35');
  $where = array('id' => 23);
- $update = $db->update('user', $dataArray, $aWhere)->affectedRows();
+ $update = $db->update('users', $dataArray, $aWhere)->affectedRows();
 
 delete()
 ^^^^^^^^
