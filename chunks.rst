@@ -12,7 +12,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
  use Dframe\Database\WhereStringChunk;
  use Dframe\Router\Response;
  
- class UserController extends \Controller\Controller
+ class UsersController extends \Controller\Controller
  {
  
      public function index() 
@@ -53,7 +53,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
  
  class UserModel extends \Model\Model
  {
-     public function resources($whereObject, $order = 'user.id', $sort = 'DESC') 
+     public function resources($whereObject, $order = 'users.id', $sort = 'DESC') 
      {
  
          $query = $this->baseClass->db->prepareQuery('SELECT * FROM users');        
