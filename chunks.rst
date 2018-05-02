@@ -18,7 +18,11 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
      {
          $userModel = $this->loadModel('User');
          $view = $this->loadView('Index');
-         
+         $view->render('user/index);
+     }
+     
+     public function list()
+     {
          switch ($_SERVER['REQUEST_METHOD']) {
              case 'POST':
                  //Some Method
@@ -36,7 +40,6 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
                  return Response::renderJSON(array('users' => $users), 200);
                  break;
          }
-         
          
          return Response::renderJSON(array('code' => 403, 'text' => 'Method Not Allowed'))
              ->headers(array('Allow' => 'GET, POST'))
