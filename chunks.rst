@@ -34,18 +34,19 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
                  $where = array();
                  
                  if (isset($_GET['search']['username'])) {
-                     $where[] = new WhereChunk('`users`.`username`', '%'.$_POST['search']['username'].'%', 'LIKE');
+                     $where[] = new WhereChunk('`users`.`username`', '%'.$_GET['search']['username'].'%', 'LIKE');
                  }
       
                  $users = $userModel->getUsers($where, $order[0], $order[1]);
-                 return Response::renderJSON(array('users' => $users), 200);
+                 return Response::renderJSON(array('code' => '200', 'data' => array('users' => array('data' => $users))), 200);
                  break;
          }
          
-         return Response::renderJSON(array('code' => 403, 'text' => 'Method Not Allowed'))
+         return Response::renderJSON(array('code' => 403, 'message' => 'Method Not Allowed'))
              ->headers(array('Allow' => 'GET, POST'))
              ->status(403);
      }
+     
      
 .. code-block:: php
 
@@ -53,7 +54,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
  
  class UserModel extends \Model\Model
  {
-     public function resources($whereObject, $order = 'users.id', $sort = 'DESC') 
+     public function getUsers($whereObject, $order = 'users.id', $sort = 'DESC') 
      {
  
          $query = $this->baseClass->db->prepareQuery('SELECT * FROM users');        
