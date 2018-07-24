@@ -1,8 +1,15 @@
+.. title:: Query Builder mysql - Dframe/Database
+
+.. meta::
+    :description: Skomplikowane zapytania czasami wiążą się z budowaniem wielu takich samych zapytań z niewielką zmianą.
+    :keywords: dframe, database, pdo, pdo-mysql, query-builder, query
+    
+    
 ====
 Opis
 ====
 
-Skomplikowane zapytania czasami wiążą się z budowaniem wielu takich samych zapytań z niewielką zmianą. Gdyby tak w ładny sposób budować kawałki zapytania?
+Skomplikowane zapytania czasami wiążą się z budowaniem wielu takich samych zapytań z niewielką zmianą. Gdyby tak w ładny sposób budować kawałki zapytania? Przedstawiam Query Builder mysql.
 
 |table|
 
