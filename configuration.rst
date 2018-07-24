@@ -1,3 +1,14 @@
+.. title:: Konfiguracja - PDO wrapper
+
+.. meta::
+    :description: Dane dla dfrme powinny znajdować się w pliku app/boostrap.php. Zawiera on biblioteki i zmienne przekazywane do całej aplikacji poprzez zmienną $this->baseClass.
+    :keywords: dframe, database, pdo, pdo-mysql, query-builder, query
+
+    
+====
+Konfiguracja
+====
+
 Dane dla dfrme powinny znajdować się w pliku app/boostrap.php. Zawiera on biblioteki i zmienne przekazywane do całej aplikacji poprzez zmienną $this->baseClass. W pliku web/config.php podaje się wartości CONST
 
 .. code-block:: php
