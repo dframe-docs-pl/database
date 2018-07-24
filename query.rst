@@ -1,8 +1,15 @@
+.. title:: Tworzenie zapytań do bazy danych - PDO wrapper
+
+.. meta::
+    :description: Biblioteka jest Wrapper'em czyli klasą która wywołuje klasę główną. Służy ona do prostszej obsługi i tworzenia zapytań do bazy danych w dużej części autopatyzując część rzeczy.
+    :keywords: dframe, database, pdo, pdo-mysql, query-builder, query
+    
+    
 ====
-Opis
+Tworzenie zapytań do bazy danych
 ====
 
-Biblioteka jest Wrapper czyli klasą która wywołuje klasę główną. Służy ona do prostszej obsługi i tworzenia zapytań do bazy danych w dużej części autopatyzując część rzeczy. Poniżej znajduje się lista dostępnych metod oraz ich opis.
+Biblioteka jest Wrapper'em czyli klasą która wywołuje klasę główną. Służy ona do prostszej obsługi i tworzenia zapytań do bazy danych w dużej części autopatyzując część rzeczy. Poniżej znajduje się lista dostępnych metod oraz ich opis.
 
 |table|
 
