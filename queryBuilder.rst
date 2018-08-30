@@ -3,8 +3,8 @@
 .. meta::
     :description: Skomplikowane zapytania czasami wiążą się z budowaniem wielu takich samych zapytań z niewielką zmianą.
     :keywords: dframe, database, pdo, pdo-mysql, query-builder, query
-    
-    
+
+
 ====
 Opis
 ====
@@ -13,7 +13,7 @@ Skomplikowane zapytania czasami wiążą się z budowaniem wielu takich samych z
 
 |table|
 
-prepareQuery($sql, $parms = array())
+prepareQuery($sql, $parms = [])
 ^^^^^^^^^^^^^^
 Podstawowa metoda do budowania zapytań
 
@@ -21,17 +21,17 @@ Podstawowa metoda do budowania zapytań
 
  $query = $db->prepareQuery('SELECT * FROM users');
 
-prepareWhere($parms = array())
+prepareWhere($parms = [])
 ^^^^^^^^^^^^^^
 Metoda służąca do filtrowania zapytań
 
 
 .. code-block:: php
 
- $where = array(new WhereChunk('user_id = ?', array('1'))));
+ $where = [new WhereChunk('user_id = ?', ['1'])];
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareWhere($where);
- 
+
 Można na niej wykonywać prostsze zapytania z określanymi danymi i filtrami
 
 prepareOrder($orderBy, $sort)
@@ -40,7 +40,7 @@ Metoda służąca do sortowania
 
 .. code-block:: php
 
- $where = array(new WhereChunk('active > ?', array('1'))));
+ $where = [new WhereChunk('active > ?', ['1'])];
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareWhere($where);
  $query->prepareOrder('username', 'ASC');
@@ -63,14 +63,14 @@ Wygodna metoda do limitowania danych przydatka w użyciu paginatora
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareLimit('10', '30');
 
-prepareParms($parms = array())
+prepareParms($parms = [])
 ^^^^^^^^^^^^^^
 Binduje parametr do zapytania.
 
 .. code-block:: php
 
  $query = $db->prepareQuery('SELECT * FROM users WHERE id = ?');
- $query->prepareParms(array('1'));
+ $query->prepareParms(['1']);
 
 getQuery()
 ^^^^^^^^^^
@@ -88,13 +88,14 @@ Pobiera parametry do zbindowania
 
 .. code-block:: php
 
- $where = array(new WhereChunk('active > ?', array('1'))));
+ $where = [new WhereChunk('active > ?', ['1'])]);
  $query = $db->prepareQuery('SELECT * FROM users');
  $query->prepareWhere($where);
  $query->prepareOrder('username', 'ASC');
- 
+
  $prepareQuery = $query->getQuery();
  $bindQuery = $query->getParams();
+
 
 .. |table| advTable:: width="100%"
  :tr_1:
