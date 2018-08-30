@@ -20,7 +20,7 @@ Podstawowa metoda do wykonywania większości zapytań
 
 .. code-block:: php
 
- $result = $db->pdoQuery('SELECT * FROM users WHERE user_id = ?', array('1'))->result();
+ $result = $db->pdoQuery('SELECT * FROM users WHERE user_id = ?', ['1'])->result();
 
 Notka: Warto zaznaczyć ze na końcu jest metoda result() zwraca ona pierwszy wiersz tablicy, w celu użyskania wszystich wierszy zamiast result() powinno się zastosować results()
 
@@ -36,18 +36,18 @@ Metoda służąca tylko do pobierania
 .. code-block:: php
 
  $select = $pdo->select('users')->results();
- 
+
 Można na niej wykonywać prostsze zapytania z określanymi danymi i filtrami
 
 .. code-block:: php
 
  // Pobiera wszystkie wiersze
  $select = $pdo->select('users', '*')->results();
- 
+
 .. code-block:: php
 
  // Pobiera wiersze z podanych kolumn
- $select = $pdo->select('users', array('user_id', 'user_name'))->results(); 
+ $select = $pdo->select('users', ['user_id', 'user_name'])->results();
 
 insert()
 ^^^^^^^^
@@ -56,7 +56,7 @@ Metoda służąca tylko do dodawania danych do bazy
 
 .. code-block:: php
 
- $dataArray = array('user_name' => 'Jack');
+ $dataArray = ['user_name' => 'Jack'];
  $insert = $db->insert('users', $dataArray)->getLastInsertId();
 
 InsertBatch()
@@ -66,9 +66,9 @@ Działająca na podobnej zasadzie jak insert() lecz daje nam możliwość dodani
 
 .. code-block:: php
 
- $dataArray[] = array('user_name' => 'Eli');
- $dataArray[] = array('user_name' => 'Jack');
- $dataArray[] = array('user_name' => 'Mati');
+ $dataArray[] = ['user_name' => 'Eli'];
+ $dataArray[] = ['user_name' => 'Jack'];
+ $dataArray[] = ['user_name' => 'Mati'];
  $insert = $db->insertBatch('users', $dataArray)->getAllLastInsertId();
 
 update()
@@ -78,8 +78,8 @@ Najwygdniejsza metoda w całym wraperze do aktualizowania danych
 
 .. code-block:: php
 
- $dataArray = array('user_name' => 'Monana', 'user_age' => '35');
- $where = array('id' => 23);
+ $dataArray = ['user_name' => 'Monana', 'user_age' => '35'];
+ $where = ['id' => 23];
  $update = $db->update('users', $dataArray, $aWhere)->affectedRows();
 
 delete()
@@ -89,8 +89,9 @@ delete służy do kasowania prostych danych.
 
 .. code-block:: php
 
- $aWhere = array('age' => 35);
+ $aWhere = ['age' => 35];
  $delete = $db->delete('test', $aWhere)->affectedRows();
+
 W przypadku kasowania bardziej skomplikowanego związanymi z większe/mniejsze/podobne używamy **pdoQuery** z zaleceniem użycia już **whereChunkString**
 
 truncate()
@@ -128,7 +129,7 @@ Liczenie liczby wierszy w mniej skomplikowanych zapytaniach
 .. code-block:: php
 
  $count = $db->count('employees');
- $bindWhere = array('user_name' => 'Jack');
+ $bindWhere = ['user_name' => 'Jack'];
  $count = $db->count('users', $bindWhere);
 
 showQuery()
@@ -138,7 +139,7 @@ showQuery jest bardzo przydatną metodą przy dużych zapytaniach dzięki niej z
 
 .. code-block:: php
 
- results = $db->pdoQuery('SELECT * FROM users')->showQuery();
+ $results = $db->pdoQuery('SELECT * FROM users')->showQuery();
  echo $results;
 
 getLastInsertId()
