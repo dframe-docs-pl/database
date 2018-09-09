@@ -4,10 +4,20 @@
     :description: Dane dla dfrme powinny znajdować się w pliku app/boostrap.php. Zawiera on biblioteki i zmienne przekazywane do całej aplikacji poprzez zmienną $this->baseClass.
     :keywords: dframe, database, pdo, pdo-mysql, query-builder, query
 
-    
-====
+
+Instalacja
+----------
+
+Z poziomu konsoli bash wykonaj polecenie composera*
+
+.. code-block:: bash
+
+ $ composer require dframe/database
+
+Albo pobierz ręcznie https://github.com/dframe/database/releases
+
 Konfiguracja
-====
+----------
 
 Dane dla dfrme powinny znajdować się w pliku app/boostrap.php. Zawiera on biblioteki i zmienne przekazywane do całej aplikacji poprzez zmienną $this->baseClass. W pliku web/config.php podaje się wartości CONST
 
