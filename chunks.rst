@@ -77,11 +77,11 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
      public function getUsers($whereObject, $order = 'users.id', $sort = 'DESC')
      {
 
-         $query = $this->baseClass->db->prepareQuery('SELECT * FROM users');
+         $query = $this->db->prepareQuery('SELECT * FROM users');
          $query->prepareWhere($whereObject);
          $query->prepareOrder($order, $sort);
 
-         $results = $this->baseClass->db->pdoQuery($query->getQuery(), $query->getParams())->results();
+         $results = $this->db->pdoQuery($query->getQuery(), $query->getParams())->results();
 
          return $this->methodResult(true, ['data' => $results]);
      }
