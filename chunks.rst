@@ -98,3 +98,9 @@ Ciekawszą i częściej w praktyce wykorzystywaną klasą jest WhereStringChunk 
  
  $where = []
  $where[] = new \Dframe\Database\WhereStringChunk('col_id > ?', ['1']);
+
+albo
+
+.. code-block:: php
+
+ $where[] = new \Dframe\Database\WhereStringChunk('col_name LIKE ?', ['%name%']);
