@@ -96,7 +96,7 @@ Ciekawszą i częściej w praktyce wykorzystywaną klasą jest WhereStringChunk 
 
 .. code-block:: php
  
- $where = []
+ $where = [];
  $where[] = new \Dframe\Database\WhereStringChunk('col_id > ?', ['1']);
 
 albo
