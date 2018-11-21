@@ -22,10 +22,10 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
       */
      public function index()
      {
-         $userModel = $this->loadModel('Users');
-         $view = $this->loadView('Index');
+         $UserModel = $this->loadModel('Users');
+         $View = $this->loadView('Index');
          
-         return $view->render('users/index');
+         return $View->render('users/index');
      }
  
      /**
@@ -46,7 +46,7 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
                      $where[] = new WhereChunk('`users`.`username`', '%' . $_GET['search']['username'] . '%', 'LIKE');
                  }
  
-                 $users = $userModel->getUsers($where, $order[0], $order[1]);
+                 $users = $UserModel->getUsers($where, $order[0], $order[1]);
                  return Response::renderJSON(['code' => '200', 'data' => ['users' => ['data' => $users]]], 200);
                  break;
          }
@@ -68,17 +68,17 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
  {
 
      /**
-      * @param        $whereObject
+      * @param array  $whereObject
       * @param string $order
       * @param string $sort
       *
       * @return mixed
       */
-     public function getUsers($whereObject, $order = 'users.id', $sort = 'DESC')
+     public function getUsers($where, $order = 'users.id', $sort = 'DESC')
      {
 
          $query = $this->db->prepareQuery('SELECT * FROM users');
-         $query->prepareWhere($whereObject);
+         $query->prepareWhere($where);
          $query->prepareOrder($order, $sort);
 
          $results = $this->db->pdoQuery($query->getQuery(), $query->getParams())->results();
