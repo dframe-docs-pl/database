@@ -33,6 +33,8 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
       */
      public function lists()
      {
+         $UserModel = $this->loadModel('Users');
+         
          switch ($_SERVER['REQUEST_METHOD']) {
              case 'POST':
                  //Some Method
