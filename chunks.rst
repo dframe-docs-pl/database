@@ -106,3 +106,17 @@ albo
 .. code-block:: php
 
  $where[] = new \Dframe\Database\WhereStringChunk('col_name LIKE ?', ['%name%']);
+ 
+
+HavingStringChunk
+^^^^^^^^^^^^^^^^
+
+.. code-block:: php
+
+ $having = [];
+ $having[] = new \Dframe\Database\HavingStringChunk('col_name = ?', ['example']);
+ 
+ $query = $this->db->prepareQuery('SELECT * FROM users');
+ $query->prepareGroupBy('name');
+ $query->prepareHaving($having);
+ 
