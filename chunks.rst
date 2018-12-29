@@ -27,9 +27,11 @@ Tak zwane kawałki, Pomocne do przeszukiwania/filtrowania danych w bazie. Gdy tw
      }
          
      /**
+      * List users
+      *
       * @return mixed
       */
-     public function lists()
+     public function users()
      {
          $UserModel = $this->loadModel('Users');
          
